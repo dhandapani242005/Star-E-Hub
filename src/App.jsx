@@ -385,11 +385,11 @@ function App() {
     const localBranding = localStorage.getItem('e-star-branding');
     if (localBranding) return JSON.parse(localBranding);
     return {
-      primaryNavy: '#091E36',
-      primaryNavyLight: '#0d2c4f',
-      accentGold: '#F2A900',
-      accentGoldHover: '#d49300',
-      accentGoldBg: 'rgba(242, 169, 0, 0.08)'
+      primaryNavy: '#2563eb',
+      primaryNavyLight: '#1d4ed8',
+      accentGold: '#f59e0b',
+      accentGoldHover: '#d97706',
+      accentGoldBg: 'rgba(245,158,11,0.08)'
     };
   });
 
@@ -617,8 +617,8 @@ function App() {
           <div className="spinner" style={{
             width: '50px',
             height: '50px',
-            border: '5px solid var(--accent-gold-bg)',
-            borderTop: '5px solid var(--accent-gold)',
+            border: '5px solid #eff6ff',
+            borderTop: '5px solid #2563eb',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }}></div>
@@ -639,8 +639,8 @@ function App() {
           <div className="spinner" style={{
             width: '50px',
             height: '50px',
-            border: '5px solid var(--accent-gold-bg)',
-            borderTop: '5px solid var(--accent-gold)',
+            border: '5px solid #eff6ff',
+            borderTop: '5px solid #2563eb',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }}></div>
@@ -837,32 +837,36 @@ function App() {
         ))}
       </div>
 
-      {/* 4. Flipkart-style professional footer */}
+      {/* Footer */}
       <footer style={{
         marginTop: '60px',
-        borderTop: '1px solid var(--border-muted)',
-        padding: '40px 0',
+        borderTop: '1px solid #e2e8f0',
+        padding: '36px 0',
         textAlign: 'center',
-        backgroundColor: 'var(--primary-navy)',
+        backgroundColor: '#1e40af',
         color: '#ffffff'
       }}>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <div style={{ display: 'inline-flex', width: '28px', height: '28px', backgroundColor: 'var(--accent-gold)', color: 'var(--primary-navy)', alignItems: 'center', justifyContent: 'center', fontWeight: 900, borderRadius: '4px' }}>E</div>
-          <span className="logo-text" style={{ fontSize: '1.3rem', color: '#ffffff' }}>
-            E-<span style={{ color: 'var(--accent-gold)' }}>Star</span> Store
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+          <div style={{ display: 'inline-flex', width: '30px', height: '30px', backgroundColor: '#ffffff', color: '#2563eb', alignItems: 'center', justifyContent: 'center', fontWeight: 900, borderRadius: '6px', fontSize: '1rem' }}>E</div>
+          <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.01em' }}>
+            E-<span style={{ color: '#93c5fd' }}>Star</span> Store
           </span>
         </div>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '16px' }}>
-          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('home'); window.scrollTo({top:0}); }}>Home</span> • 
-          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('shop'); setSelectedCategory('All'); window.scrollTo({top:0}); }}>Catalog Directory</span> • 
-          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('cart'); window.scrollTo({top:0}); }}>Cart Basket</span> • 
-          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('account'); window.scrollTo({top:0}); }}>My SuperCoins</span> • 
+
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#bfdbfe', marginBottom: '16px', alignItems: 'center' }}>
+          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('home'); window.scrollTo({top:0}); }}>Home</span>
+          <span style={{ opacity: 0.4 }}>•</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('shop'); setSelectedCategory('All'); window.scrollTo({top:0}); }}>Catalog Directory</span>
+          <span style={{ opacity: 0.4 }}>•</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('cart'); window.scrollTo({top:0}); }}>Cart Basket</span>
+          <span style={{ opacity: 0.4 }}>•</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('account'); window.scrollTo({top:0}); }}>My Account</span>
+          <span style={{ opacity: 0.4 }}>•</span>
           <span style={{ cursor: 'pointer' }} onClick={() => { setCurrentPage('admin'); window.scrollTo({top:0}); }}>Merchant Console</span>
         </div>
 
-        <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
-          © {new Date().getFullYear()} E-Star E-Commerce Ltd. Flipkart Navy & Gold custom sandbox platform. Built completely in React JS.
+        <p style={{ fontSize: '0.78rem', color: '#93c5fd' }}>
+          © {new Date().getFullYear()} E-Star E-Commerce Ltd. — Built with React JS.
         </p>
       </footer>
     </div>

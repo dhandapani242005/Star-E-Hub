@@ -132,7 +132,7 @@ export default function CustomerAccount({
     tierColor = '#2563eb';
   } else if (loyaltyPoints >= 2000) {
     tier = 'Gold Executive';
-    tierColor = '#d4a359';
+    tierColor = '#2563eb';
   } else if (loyaltyPoints >= 500) {
     tier = 'Silver Premium';
     tierColor = '#64748b';
@@ -171,29 +171,29 @@ export default function CustomerAccount({
             <div style={{
               padding: '24px',
               textAlign: 'center',
-              backgroundColor: '#0f172a',
+              background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
               color: '#ffffff'
             }}>
               <div style={{
                 width: '60px',
                 height: '60px',
                 borderRadius: '50%',
-                backgroundColor: '#d4a359',
-                color: '#0f172a',
+                backgroundColor: 'rgba(255,255,255,0.25)',
+                color: '#ffffff',
                 fontSize: '1.6rem',
-                fontWeight: 950,
+                fontWeight: 800,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '0 auto 12px',
-                border: '2px solid #ffffff'
+                border: '2px solid rgba(255,255,255,0.5)'
               }}>
                 {(currentUser?.name || 'G').charAt(0).toUpperCase()}
               </div>
               <h2 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', marginBottom: '6px' }}>
                 {currentUser?.name || 'Guest User'}
               </h2>
-              <span className="assured-badge" style={{ fontSize: '0.65rem', backgroundColor: '#d4a359', color: '#0f172a', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
+              <span style={{ fontSize: '0.65rem', backgroundColor: 'rgba(255,255,255,0.2)', color: '#ffffff', padding: '2px 10px', borderRadius: '99px', fontWeight: 700, border: '1px solid rgba(255,255,255,0.35)' }}>
                 ✦ E-STAR MEMBER
               </span>
             </div>
@@ -267,7 +267,7 @@ export default function CustomerAccount({
             boxShadow: 'var(--shadow-sm)'
           }}>
             <h3 style={{ fontSize: '0.85rem', fontWeight: 800, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
-              <TrendingUp size={16} style={{ color: '#d4a359' }} /> Rewards Center
+              <TrendingUp size={16} style={{ color: '#2563eb' }} /> Rewards Center
             </h3>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: '12px 0' }}>
@@ -279,7 +279,7 @@ export default function CustomerAccount({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#d4a359'
+                color: '#f59e0b'
               }}>
                 <Star size={16} fill="currentColor" />
               </div>
@@ -712,10 +712,10 @@ export default function CustomerAccount({
                       key={card.id}
                       style={{
                         padding: '20px',
-                        background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+                        background: 'linear-gradient(135deg, #1e40af 0%, #2563eb 100%)',
                         color: '#ffffff',
                         borderRadius: '12px',
-                        boxShadow: 'var(--shadow-md)',
+                        boxShadow: '0 8px 24px rgba(37,99,235,0.3)',
                         position: 'relative',
                         display: 'flex',
                         flexDirection: 'column',
@@ -725,8 +725,8 @@ export default function CustomerAccount({
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                         <div>
-                          <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#d4a359' }}>{card.cardType.toUpperCase()} SECURE</div>
-                          <span style={{ fontSize: '0.55rem', border: '1px solid #d4a359', padding: '1px 4px', color: '#d4a359', borderRadius: '3px', marginTop: '2px', display: 'inline-block' }}>CARD PROFILE</span>
+                          <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'rgba(255,255,255,0.85)' }}>{card.cardType.toUpperCase()} SECURE</div>
+                          <span style={{ fontSize: '0.55rem', border: '1px solid rgba(255,255,255,0.4)', padding: '1px 4px', color: 'rgba(255,255,255,0.7)', borderRadius: '3px', marginTop: '2px', display: 'inline-block' }}>CARD PROFILE</span>
                         </div>
 
                         <button

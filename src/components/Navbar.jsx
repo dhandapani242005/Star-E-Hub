@@ -68,8 +68,8 @@ export default function Navbar({
     <>
       {/* Top Info Bar */}
       <div style={{
-        backgroundColor: '#0f172a',
-        color: '#94a3b8',
+        backgroundColor: '#1e40af',
+        color: '#bfdbfe',
         fontSize: '0.78rem',
         fontFamily: 'var(--font-sans)',
         padding: '7px 0'
