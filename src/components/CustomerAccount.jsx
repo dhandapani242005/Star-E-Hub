@@ -126,16 +126,16 @@ export default function CustomerAccount({
   const loyaltyPoints = Math.round(totalSpent / 10); // 1 point per 10 INR
 
   let tier = 'Bronze Elite';
-  let tierColor = '#b45309';
+  let tierColor = '#2563eb';
   if (loyaltyPoints >= 5000) {
     tier = 'Platinum Ultimate';
-    tierColor = '#2563eb';
+    tierColor = '#7c3aed';
   } else if (loyaltyPoints >= 2000) {
     tier = 'Gold Executive';
-    tierColor = '#2563eb';
+    tierColor = '#1d4ed8';
   } else if (loyaltyPoints >= 500) {
     tier = 'Silver Premium';
-    tierColor = '#64748b';
+    tierColor = '#0284c7';
   }
 
   // Get active tracking timeline nodes
