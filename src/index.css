@@ -1,76 +1,82 @@
 /* ==========================================================================
-   E-STAR PROFESSIONAL E-COMMERCE STYLING SYSTEM (FLIPKART NAVY & GOLD EDITION)
+   E-STAR TECHSHOP — CLEAN MODERN E-COMMERCE DESIGN SYSTEM
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 :root {
-  /* Brand Typography */
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Outfit', var(--font-sans);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', var(--font-sans);
 
-  /* Color Palette (User Provided Custom Paletet) */
-  --primary-navy: #003fa3;       /* Vibrant Dark Blue */
-  --primary-navy-light: #106ebe; /* Medium Steel/Royal Blue */
-  --primary-navy-dark: #002d84;  /* Deep Ocean Navy Blue */
-  
-  --accent-gold: #f5b002;        /* Vibrant Yellow-Gold / Amber */
-  --accent-gold-hover: #d99400;  /* Darker Gold Hover */
-  --accent-gold-bg: rgba(245, 176, 2, 0.08);
+  /* Brand Colors */
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --primary-blue-light: #eff6ff;
+  --primary-blue-border: #bfdbfe;
 
-  --flipkart-blue: #3ba3e3;       /* Bright Ocean Sky Blue */
-  --flipkart-green: #10b981;      /* Modern Emerald Green */
-  --flipkart-green-bg: #ecfdf5;
+  /* Legacy compat aliases */
+  --primary-navy: #2563eb;
+  --primary-navy-light: #1d4ed8;
+  --primary-navy-dark: #1e40af;
+  --accent-gold: #f59e0b;
+  --accent-gold-hover: #d97706;
+  --accent-gold-bg: #fffbeb;
+  --flipkart-blue: #2563eb;
+  --flipkart-green: #16a34a;
+  --flipkart-green-bg: #f0fdf4;
 
-  /* App Layout Colors */
-  --bg-app: #f4f7fc;              /* Soft Light Blue-Gray background */
-  --bg-card: #ffffff;             /* Crisp clean cards */
+  /* Layout */
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
   --bg-input: #ffffff;
-  --border-muted: #d0dbe9;        /* Light Blue-Gray borders */
-  --border-focus: #106ebe;        /* Focused Steel Blue border */
+  --border-muted: #e2e8f0;
+  --border-focus: #2563eb;
 
-  /* Text Colors */
-  --text-main: #002d84;           /* Deep Ocean Slate Text */
-  --text-muted: #5b7396;          /* Muted Blue-Gray Slate Text */
-  --text-sub: #106ebe;            /* Sub-header Steel Blue Text */
+  /* Text */
+  --text-main: #0f172a;
+  --text-sub: #1e293b;
+  --text-muted: #64748b;
   --text-white: #ffffff;
 
-  /* Semantic Colors */
-  --success: #10b981;
-  --success-bg: rgba(16, 185, 129, 0.08);
-  --warning: #f5b002;
-  --warning-bg: rgba(245, 176, 2, 0.08);
+  /* Semantic */
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --warning: #f59e0b;
+  --warning-bg: #fffbeb;
   --danger: #ef4444;
-  --danger-bg: rgba(239, 68, 68, 0.08);
-  --info: #3ba3e3;
-  --info-bg: rgba(59, 163, 227, 0.08);
+  --danger-bg: #fef2f2;
+  --info: #2563eb;
+  --info-bg: #eff6ff;
 
-  /* Shadows and Curves */
-  --shadow-sm: 0 2px 8px rgba(0, 45, 132, 0.02);
-  --shadow-md: 0 10px 25px rgba(0, 45, 132, 0.04);
-  --shadow-lg: 0 20px 40px rgba(0, 45, 132, 0.07);
-  --shadow-header: 0 4px 20px rgba(0, 45, 132, 0.05);
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.10);
+  --shadow-header: 0 2px 8px rgba(0,0,0,0.08);
 
   --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.18s ease;
+  --transition-normal: all 0.28s ease;
 }
 
-/* Dark Mode support retaining User Palette aesthetics */
+/* Light-only design — no dark mode */
 body.dark-theme {
-  --bg-app: #001b4c;             /* Deep Marine Navy Backing */
-  --bg-card: #002663;            /* Rich Medium Navy Card */
-  --bg-input: #003380;           /* Solid Navy Input Backing */
-  --border-muted: #003fa3;        /* Steel Blue Border */
-  --text-main: #f3f7fe;           /* Pure Soft White/Ice-Blue */
-  --text-muted: #93b4e7;          /* Sky Blue Muted Text */
-  --text-sub: #3ba3e3;            /* Accent Light Blue */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
-  --shadow-md: 0 10px 25px rgba(0,0,0,0.4);
-  --shadow-lg: 0 20px 40px rgba(0,0,0,0.6);
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --border-muted: #e2e8f0;
+  --text-main: #0f172a;
+  --text-sub: #1e293b;
+  --text-muted: #64748b;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.10);
 }
 
 /* Master Reset */
