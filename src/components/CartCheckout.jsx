@@ -370,6 +370,50 @@ export default function CartCheckout({
               <MapPin size={22} style={{ color: 'var(--primary-navy)' }} /> FULFILLMENT TARGET
             </h2>
             
+            {currentUser && currentUser.addresses && currentUser.addresses.length > 0 && (
+              <div style={{ marginBottom: '20px', padding: '16px', border: '1.5px dashed var(--accent-gold)', borderRadius: '8px', backgroundColor: 'var(--accent-gold-bg)' }}>
+                <label style={{ fontSize: '0.82rem', fontWeight: 900, color: 'var(--primary-navy)', display: 'block', marginBottom: '8px' }}>
+                  SELECT A SAVED DESTINATION
+                </label>
+                <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '6px', scrollbarWidth: 'none' }}>
+                  {currentUser.addresses.map((addr) => (
+                    <button
+                      key={addr.id}
+                      type="button"
+                      onClick={() => {
+                        setShippingForm({
+                          name: addr.name,
+                          email: currentUser.email,
+                          phone: addr.phone,
+                          address: addr.address,
+                          city: addr.city,
+                          state: addr.state,
+                          zip: addr.zip,
+                          paymentMethod: 'credit'
+                        });
+                        addToast(`Loaded destination: ${addr.name} ✦`, 'success');
+                      }}
+                      style={{
+                        padding: '10px 14px',
+                        border: '1px solid var(--border-muted)',
+                        borderRadius: '8px',
+                        backgroundColor: '#ffffff',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                        minWidth: '180px',
+                        flexShrink: 0
+                      }}
+                    >
+                      <div style={{ fontWeight: 800, fontSize: '0.8rem' }}>{addr.name}</div>
+                      <div style={{ fontSize: '0.72rem', color: 'var(--text-sub)', marginTop: '2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {addr.address}, {addr.city}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <form onSubmit={(e) => { e.preventDefault(); setFunnelStep(3); }} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div className="form-group">
                 <label style={{ fontSize: '0.8rem', fontWeight: 800 }}>Full Name *</label>
@@ -469,6 +513,46 @@ export default function CartCheckout({
             <h2 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <CreditCard size={22} style={{ color: 'var(--primary-navy)' }} /> SECURE GATEWAY
             </h2>
+
+            {currentUser && currentUser.paymentDetails && currentUser.paymentDetails.length > 0 && (
+              <div style={{ marginBottom: '20px', padding: '16px', border: '1.5px dashed var(--accent-gold)', borderRadius: '8px', backgroundColor: 'var(--accent-gold-bg)' }}>
+                <label style={{ fontSize: '0.82rem', fontWeight: 900, color: 'var(--primary-navy)', display: 'block', marginBottom: '8px' }}>
+                  PAY WITH SAVED CARD
+                </label>
+                <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '6px', scrollbarWidth: 'none' }}>
+                  {currentUser.paymentDetails.map((card) => (
+                    <button
+                      key={card.id}
+                      type="button"
+                      onClick={() => {
+                        setCardForm({
+                          number: card.cardNumber,
+                          name: card.cardHolder,
+                          expiry: card.expiry,
+                          cvv: '•••'
+                        });
+                        addToast(`Loaded payment card: ${card.cardType} ✦`, 'success');
+                      }}
+                      style={{
+                        padding: '10px 14px',
+                        border: '1px solid var(--border-muted)',
+                        borderRadius: '8px',
+                        backgroundColor: '#ffffff',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                        minWidth: '180px',
+                        flexShrink: 0
+                      }}
+                    >
+                      <div style={{ fontWeight: 800, fontSize: '0.8rem' }}>{card.cardType} Secure</div>
+                      <div style={{ fontSize: '0.72rem', color: 'var(--text-sub)', marginTop: '2px' }}>
+                        {card.cardNumber}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Credit Card Flip */}
             <div className={`credit-card-flip-container ${cardFlipped ? 'flipped' : ''}`}>

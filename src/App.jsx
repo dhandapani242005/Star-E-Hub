@@ -78,6 +78,10 @@ function App() {
               email: user.email,
               name: data.name || user.email.split('@')[0],
               role: data.role || 'user',
+              phone: data.phone || '',
+              city: data.city || '',
+              addresses: data.addresses || [],
+              paymentDetails: data.paymentDetails || [],
               createdAt: data.createdAt || new Date().toISOString()
             });
           } else {
@@ -86,6 +90,10 @@ function App() {
               name: user.email.split('@')[0],
               email: user.email,
               role: 'user',
+              phone: '',
+              city: '',
+              addresses: [],
+              paymentDetails: [],
               createdAt: new Date().toISOString()
             };
             await setDoc(userDocRef, profile);
@@ -98,6 +106,10 @@ function App() {
             email: user.email,
             name: user.email.split('@')[0],
             role: 'user',
+            phone: '',
+            city: '',
+            addresses: [],
+            paymentDetails: [],
             createdAt: new Date().toISOString()
           });
         }
@@ -118,6 +130,23 @@ function App() {
       addToast('Successfully logged out.', 'success');
     } catch (err) {
       addToast('Failed to log out.', 'danger');
+    }
+  };
+
+  const handleUpdateProfile = async (updatedFields) => {
+    if (!currentUser) return;
+    try {
+      const userDocRef = doc(db, 'users', currentUser.uid);
+      await setDoc(userDocRef, updatedFields, { merge: true });
+      
+      setCurrentUser(prev => ({
+        ...prev,
+        ...updatedFields
+      }));
+      addToast('Profile updated successfully! ✦', 'success');
+    } catch (err) {
+      console.error("Error updating profile:", err);
+      addToast('Failed to update profile details.', 'danger');
     }
   };
 
@@ -707,6 +736,7 @@ function App() {
             orders={orders}
             setCurrentPage={setCurrentPage}
             currentUser={currentUser}
+            onUpdateProfile={handleUpdateProfile}
           />
         );
       case 'admin':
