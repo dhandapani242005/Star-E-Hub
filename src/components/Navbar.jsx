@@ -347,7 +347,7 @@ export default function Navbar({
             {[
               { id: 'home', label: 'Home' },
               { id: 'shop', label: 'Shop' },
-              { id: 'deals', label: 'Deals', special: true },
+              { id: 'deals', label: 'Deals' },
               { id: 'new', label: 'New Arrivals' },
               { id: 'account', label: 'My Account' },
             ].map(link => (
@@ -364,7 +364,7 @@ export default function Navbar({
                   padding: '10px 14px',
                   fontSize: '0.88rem',
                   fontWeight: (currentPage === link.id) ? 700 : 500,
-                  color: link.special ? '#ef4444' : (currentPage === link.id ? '#2563eb' : '#374151'),
+                  color: currentPage === link.id ? '#2563eb' : '#374151',
                   cursor: 'pointer',
                   fontFamily: 'var(--font-sans)',
                   whiteSpace: 'nowrap',
@@ -373,7 +373,7 @@ export default function Navbar({
                   transition: 'all 0.18s'
                 }}
                 onMouseEnter={e => { if (currentPage !== link.id) e.currentTarget.style.color = '#2563eb'; }}
-                onMouseLeave={e => { if (currentPage !== link.id) e.currentTarget.style.color = link.special ? '#ef4444' : '#374151'; }}
+                onMouseLeave={e => { if (currentPage !== link.id) e.currentTarget.style.color = '#374151'; }}
               >
                 {link.label}
               </button>
